@@ -1,0 +1,7 @@
+00\ backup/*
+01\ datos/*
+10\ pruebas/*
+*.csv
+*.CSV
+*.xlsx
+*-xls
