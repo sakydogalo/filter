@@ -22,6 +22,7 @@ class Archivo(object):
         csv_:str,
         encoding: str,
         delimiter: str):
+
         Log.logger.info('(Abrir):')
         Log.logger.info('\tArchivo     :"' + csv_ +'"')
         Log.logger.info('\tCodificación:"' + encoding +'"')
@@ -38,3 +39,15 @@ class Archivo(object):
             Log.logger.info('\tLineas      :'+str(self.line_count))
             # print fields of the csv
             Log.logger.info('\tCampos      :'+str(self.campos))
+
+    def guardar(self,
+        csv_:str,
+        encoding: str,
+        delimiter: str):
+
+        f = open(csv_, 'w',encoding=encoding)
+        with f:
+            writer = csv.writer(f,delimiter=delimiter)
+            writer.writerow(self.campos)
+            for row in self.datos:
+                writer.writerow(row)         
